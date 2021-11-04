@@ -1,0 +1,232 @@
+body{
+    background: #fffff8;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+#app{
+    display: grid;
+    grid-auto-rows: auto auto auto 1fr;
+    grid-template-columns: auto;
+    grid-template-areas: 
+    "hd"
+    "sd"
+    "main"
+    "ft";
+    background-image: url("src/IMG_5557.JPG");
+    background-size: auto;
+    color: #867F8C;
+    justify-content: center;
+    grid-gap: 1em;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+    width: 100%;
+}
+
+.headline{
+    grid-area: hd;
+    padding: 15px;
+    text-align: center;
+    margin: 0 auto 1.4em;
+    width: 100%;
+}
+
+.sidebar{
+    grid-area: sd;
+    padding: 15px;
+    background-color: rgb(0,0,0,0.25);
+    border-radius: 5%;
+    width: 50%;
+    margin: 10px auto;
+}
+
+
+.holder{
+    grid: main;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 10px auto;
+}
+
+.footer{
+    grid-area: ft;
+    display: flex;
+}
+/*Most recent entry grid for displaying the weather and mood*/
+.entry{
+    background: rgba(59, 74, 107, .4);
+}
+
+.title{
+    text-align: center;
+}
+
+
+#entryHolder{
+    display: grid;
+    grid-template-areas: 
+    "na na na"
+    "ic ic ic"
+    "ic ic ic"
+    "ic ic ic"
+    "de de de"
+    "tc tc tc"
+    "tf tf tf"
+    "dt dt dt"
+    "ct ct ct";
+    gap: 20px;
+    background-color: rgb(0,0,0,0.25);
+    border-radius: 5%;
+    padding: 25px;
+    width: 100%;
+}
+
+#icon{
+    grid-area: ic;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#desc{
+    grid-area: de;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.74);
+}
+#name{
+    grid-area: na;
+    font-size: 25px;
+    color: rgba(255, 255, 255, 0.74);
+    text-align: center;
+}
+#date{
+    grid-area: dt;
+    color: rgba(255, 255, 255, 0.74);
+    text-align: left;
+}
+
+#temp{
+    grid-area: tc;
+    color: rgba(255, 255, 255, 0.74);
+    text-align: left;
+}
+#feels{
+    grid-area: tf;
+    color: rgba(255, 255, 255, 0.74);
+    text-align: left;
+}
+#content{
+    grid-area: ct;
+    color: rgba(255, 255, 255, 0.74);
+    text-align: left;
+}
+
+.headline {
+    font-size: 46px;
+    color: rgba(255, 255, 255, 0.74);
+}
+.title{
+    font-size: 27px;
+    color: rgba(255, 255, 255, 0.74);
+}
+
+label{
+    /* display:block; */
+    font-size: 27px;
+    color: rgba(255, 255, 255, 0.74);
+}
+
+button{
+    width: 100%;
+    height: 100px;
+    background: #867F8C;
+    color: rgba(255, 255, 255, 0.74);
+    font-size: 26px;
+    font-family: 'Oswald', sans-serif;
+    border: 1px solid #354D75;
+    box-shadow: 2px 4px 5px #444;
+    margin: 10px auto;
+}
+
+button:hover{
+    background-color: rgba(134, 127, 140, 0.5);
+    color: rgba(255, 255, 255, 0.74);
+    border: 1px solid rgba(255, 255, 255, 0.74);
+}
+
+button:active{
+    background-color: #334E75;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+input{
+    display:block;
+    height: 60px;
+    width: 100%;
+    background:#867F8C;
+    color: rgba(255, 255, 255, 0.74);
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+    border: none;
+}
+
+input:focus,
+textarea:focus {
+    background: rgba(134, 127, 140, 0.5);
+}
+
+textarea{
+    background:#867F8C;
+    color: rgba(255, 255, 255, 0.74);
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+    width: 100%;
+}
+/* Reset style for HTML element on active to have no border*/
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+/* Style for Placeholder Text*/
+::placeholder { /* Firefox, Chrome, Opera */ 
+    color: #354D75; 
+    font-family: 'Oswald', sans-serif;
+    font-style: italic;
+} 
+  
+:-ms-input-placeholder { /* Internet Explorer 10-11 */ 
+    color: #354D75; 
+    font-family: 'Oswald', sans-serif;
+    font-style: italic;
+} 
+  
+::-ms-input-placeholder { /* Microsoft Edge */ 
+    color: #354D75; 
+    font-family: 'Oswald', sans-serif;
+    font-style: italic;
+} 
+
+@media(min-width:800px){
+    #entryHolder{
+        display: grid;
+        grid-template-areas: 
+        "ic ic ic na na na dt"
+        "ic ic ic tc tc ct ct"
+        "de de de tf tf ct ct";
+        gap: 20px;
+        background-color: rgb(0,0,0,0.25);
+        border-radius: 5%;
+        padding: 25px;
+        width: 100%;
+    }
+    #date{
+        text-align: right;
+    }
+    #content{
+        text-align: right;
+    }
+    #name{
+        text-align: left;
+    }
+}
