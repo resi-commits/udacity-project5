@@ -62,8 +62,6 @@ const updateUI = async ()=>{
 }
 
 // let zip = document.getElementById('zip').value
-// adding event listener to the generate button
-document.getElementById('generate').addEventListener('click', performAction);
 
 function performAction(event){
   console.log(__dirname);
