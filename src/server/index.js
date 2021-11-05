@@ -16,15 +16,12 @@ app.use(bodyParser.json());
 const cors = require('cors');
 app.use(cors());
 // Initialize the main project folder
-app.use(express.static('website'));
+app.use(express.static('dist'));
 
-
-// Setup Server
-const port = 5500
-const server = app.listen(port, ()=>{
-  console.log('server running');
-  console.log(`running on localhost: ${port}`);
-});
+app.get('/', function (req, res) {
+  res.sendFile('dist/index.html')
+  // res.sendFile(path.resolve('src/client/views/index.html'))
+})
 
 // create server routes 
 // GET route that returns the projectData
@@ -47,3 +44,7 @@ function addData(req, res){
   res.send(projectData);
   // console.log(`the data is pushed`)
 }
+
+app.listen(8081, function () {
+  console.log('Application listening on port 8081!')
+})

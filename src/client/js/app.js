@@ -45,7 +45,7 @@ const storeData = async (url = '', data = {})=>{
 
 // async function to get all data stored in the projectData
 const updateUI = async ()=>{
-  const res = await fetch('/all');
+  const res = await fetch('http://192.168.200.1:8081/all');
   try {
     const allData = await res.json();
     document.getElementById('date').innerHTML = allData.date;
@@ -66,8 +66,9 @@ const updateUI = async ()=>{
 document.getElementById('generate').addEventListener('click', performAction);
 
 function performAction(event){
+  console.log(__dirname);
   getWeather(event).then(()=>{
-    storeData('/addData', { 
+    storeData('http://192.168.200.1:8081/addData', { 
       temp: data.main.temp, 
       feels: data.main.feels_like,
       icon: data.weather[0].icon,
@@ -81,4 +82,5 @@ function performAction(event){
     updateUI();
   })
 }
-  
+
+export { performAction }
