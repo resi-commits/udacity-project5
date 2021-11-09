@@ -7,7 +7,7 @@ module.exports = {
     devServer: {
         hot: false,
         inline: false,
-        port: 3000
+        port: 3001
     },
     output: {
         path: path.join(__dirname, 'dist'),

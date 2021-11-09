@@ -80,5 +80,3 @@ function performAction(event){
     updateUI();
   })
 }
-
-export { performAction }

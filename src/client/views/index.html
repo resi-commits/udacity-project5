@@ -15,11 +15,14 @@
     <div class="sidebar">
       <div class="holder zip">
         <label for="zip">Enter Zipcode here</label>
-        <input type="text" id="zip" placeholder="enter zip code here">
+        <input type="text" id="zip" placeholder="enter zip code here" required minlength="2">
       </div>
       <div class="holder feel">
-        <label for="feelings">How are you feeling today?</label>
-        <textarea class="myInput" id="feelings" placeholder="Enter your feelings here" rows="9" cols="100%"></textarea>
+        <label for="tripstart">When does your trip start?</label>
+        <input type='date' id="tripstart" required>
+        <label for="tripend">And when does it end?</label>
+        <input type='date' id="tripend">
+        <!-- <textarea class="myInput" id="feelings" placeholder="Enter your feelings here" rows="9" cols="100%"></textarea> -->
         <!-- <input type="text" id="feelings" placeholder="Enter your feelings here" rows="9" cols="50"> -->
       </div>
       <button id="generate" type="submit"> Generate </button>
