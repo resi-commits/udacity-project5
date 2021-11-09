@@ -87,7 +87,6 @@ app.post('/weather', async (req, res)=> {
     // need to add +1 as the count start counting with 0 for 1 day in the future
     let countDays = req.body.count + 1
     console.log(data[countDays])
-    // console.log(data[0].city_name)
     if (countDays > 15) {
       res.send({
         cityName: city_name,
@@ -98,7 +97,9 @@ app.post('/weather', async (req, res)=> {
         temp: data[15].temp,
         lowTemp: data[15].low_temp,
         max_temp: data[15].max_temp,
-        date: data[15].datetime
+        date: data[15].datetime,
+        icon: data[15].weather.icon,
+        iconDescription: data[15].weather.description
       })
     } else {
       res.send({
@@ -110,10 +111,36 @@ app.post('/weather', async (req, res)=> {
         temp: data[req.body.count].temp,
         lowTemp: data[countDays].low_temp,
         max_temp: data[countDays].max_temp,
-        date: data[countDays].datetime
+        date: data[countDays].datetime,
+        iconPath: `https://www.weatherbit.io/static/img/icons/${data[countDays].weather.icon}.png`,
+        iconDescription: data[countDays].weather.description
       })
     }
-    
+    console.log(`https://www.weatherbit.io/static/img/icons/${data[countDays].weather.icon}.png`)
+  } catch(error) {
+    console.log(error)
+  }
+})
+
+const pixabay_base_url = process.env.PIXABAY_BASE_URL
+const pixabay_api_key = process.env.PIXABAY_API_KEY
+
+app.post('/image', async (req, res) => {
+  let name = projectData.name
+  let pixabayreq = `${pixabay_base_url}?key=${pixabay_api_key}&q=${name.replaceAll(' ', '+')}&image_type=photo&category=place`
+  console.log(pixabayreq)
+  try {
+    const {
+      data: {
+        hits
+      },
+    } = await axios(pixabayreq)
+    console.log(hits[1])
+    console.log(hits[0].webformatURL)
+    res.send({
+      cityName: name,
+      webformatURL: hits[0].webformatURL
+    })
   } catch(error) {
     console.log(error)
   }

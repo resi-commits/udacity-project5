@@ -57,7 +57,7 @@ const updateUI = async ()=>{
   const res = await fetch('http://192.168.200.1:8081/all');
   try {
     const allData = await res.json();
-    // console.log(allData)
+    console.log(allData)
     // document.getElementById('date').innerHTML = allData.date;
     // document.getElementById('content').innerHTML = `Today you are feeling like this: ${allData.user}`
     // document.getElementById('icon').style.backgroundImage = `url("http://openweathermap.org/img/wn/${allData.icon}@2x.png")`
@@ -100,7 +100,25 @@ const requestWeather = async (url = '', data= {}) => {
   }
 }
 
+const requestImage = async (url = '', data = {}) => {
+  const res = await fetch(url, {
+    method: 'POST',
+    credentials: 'same-origin',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data)
+  });
+  try {
+    // console.log(res)
+    return await res.json()
+  } catch(error) {
+    console.log('error', error)
+  }
+}
+
 function performAction(event){
+  let tripstart = new Date(document.getElementById('tripstart').value)
   getCoords(event).then(()=>{
     storeData('http://192.168.200.1:8081/addData', { 
       lat: data.geonames[0].lat, 
@@ -108,18 +126,22 @@ function performAction(event){
       country: data.geonames[0].countryName,
       countryCode: data.geonames[0].countryCode,
       name: data.geonames[0].name,
-      count: count
+      count: count,
+      today: newDate,
+      tripstart: tripstart
     });
   })
   .then(()=>{
-    // console.log(data)
-    let date = document.getElementById('tripstart').value
-    console.log(date)
-    requestWeather('http://192.168.200.1:8081/weather', {lat: data.geonames[0].lat, lon: data.geonames[0].lng, count, date}).then((dat)=>{
+    requestWeather('http://192.168.200.1:8081/weather', {lat: data.geonames[0].lat, lon: data.geonames[0].lng, count, date: tripstart})  
+    .then((dat)=>{
       console.log(dat)
-      updateUI(dat);
+      requestImage('http://192.168.200.1:8081/image', {city: dat.cityName})
     })
   })
+  .then((dati)=>{
+    updateUI(dati);
+  })
+  
 }
 
 export { performAction }
