@@ -1,6 +1,6 @@
 function performAction(event){
   getInput(event).then((input)=>{
-    submitData('http://192.168.200.1:8081/trip', input).then((res)=>{
+    submitData('http://localhost:8081/trip', input).then((res)=>{
       updateUI(res)
     })
   })
