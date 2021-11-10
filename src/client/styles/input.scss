@@ -1,0 +1,91 @@
+@use 'base';
+
+.sidebar{
+  grid-area: sd;
+  padding: 15px;
+  background-color: base.$back-color;
+  border-radius: 5%;
+  width: 50%;
+  margin: 10px auto;
+  color: base.$font-color-green;
+  border: 5px solid white;
+}
+
+label{
+  font-size: 27px;
+  color: base.$font-color-green;
+}
+
+input{
+  display:block;
+  height: 60px;
+  width: 100%;
+  background:#ffcb2f98;
+  color: base.$input-color;
+  font-size: 20px;
+  font-family: 'Oswald', sans-serif;
+}
+
+input:invalid {
+  border: 2px dashed #FD4D41;
+}
+
+input:valid,
+textarea:valid {
+  border: 2px solid base.$input-color;
+  background: base.$light-back-color;
+  color: base.$font-color-green;
+}
+
+input:focus,
+textarea:focus {
+  background: base.$light-back-color;
+  color: base.$font-color-green;
+}
+
+// input:visited,
+// textarea:visited {
+//   background: base.$light-back-color;
+//   color: base.$font-color-green;
+// }
+/* Style for Placeholder Text*/
+::placeholder { /* Firefox, Chrome, Opera */ 
+  color: base.$input-color; 
+  font-family: 'Oswald', sans-serif;
+} 
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */ 
+  color: base.$input-color; 
+  font-family: 'Oswald', sans-serif;
+} 
+
+::-ms-input-placeholder { /* Microsoft Edge */ 
+  color: base.$input-color; 
+  font-family: 'Oswald', sans-serif;
+} 
+
+// submit button styling
+button{
+  width: 100%;
+  height: 100px;
+  background: base.$font-color-green;
+  color: base.$back-color;
+  font-size: 26px;
+  font-family: 'Oswald', sans-serif;
+  border: 1px solid white;
+  box-shadow: 2px 4px 5px #444;
+  margin: 10px auto;
+}
+
+button:hover{
+  background-color: base.$input-color;
+  color: rgba(255, 255, 255, 0.74);
+  font-weight: bold;
+  border: 2px solid rgba(255, 255, 255, 0.74);
+}
+
+button:active{
+  background-color: #334E75;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}

@@ -1,0 +1,145 @@
+@use 'base';
+
+.entry{
+  background: base.$light-back-color;
+  grid-area: main;
+}
+
+.title{
+  text-align: center;
+  font-size: 27px;
+  color: base.$font-color-black;
+}
+
+#entryHolder{
+  display: grid;
+  grid-template-areas: 
+  "dest dest dest cd cd cd"
+  "dImg dImg dImg date date date"
+  "dImg dImg dImg cTemp cIcon cMinMax"
+  "dImg dImg dImg fTemp fIcon fMinMax";
+  gap: 20px;
+  background-color: base.$back-color;
+  border-radius: 5%;
+  padding: 25px;
+  width: 94%;
+  // justify-items: center;
+  // align-items: center;
+}
+
+// destination
+#travelDestination{
+  grid-area: dest;
+  text-align: right;
+  @include base.flexFormat;
+}
+
+// countdown
+#countdown{
+  grid-area: cd;
+  text-align: right;
+  @include base.flexFormat;
+}
+
+// destination Image > city or country picture
+#destinationImage{
+  grid-area: dImg;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto 100%;
+  @include base.flexFormat;
+}
+
+// date: description of tripstart, duration and tripend
+#date{
+  grid-area: date;
+  @include base.flexFormat;
+}
+
+// currentTemp describes current temperature of the location
+#currentTemp {
+  grid-area: cTemp;
+  text-align: left;
+  @include base.flexFormat;
+}
+
+// currentIcon describes with an icon the current weather situation at the destination
+#currentIcon {
+  grid-area: cIcon;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto 100%;
+  background-color: white;
+  border-radius: 35%;
+  @include base.flexFormat;
+}
+
+// currentMinMaxTemp describes the current minimum and maximum temperature at the destination
+#currentMinMaxTemp{
+  grid-area: cMinMax;
+  text-align: right;
+  @include base.flexFormat;
+}
+
+// forecastTemp describes forecast temperature of the location
+#forecastTemp {
+  grid-area: fTemp;
+  text-align: left;
+  @include base.flexFormat;
+}
+
+// forecastIcon describes with an icon the forecast weather situation at the destination
+#forecastIcon {
+  grid-area: fIcon;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto 100%;
+  background-color: white;
+  border-radius: 35%;
+  @include base.flexFormat;
+}
+
+// forecastMinMaxTemp describes the forecast minimum and maximum temperature at the destination
+#forecastMinMaxTemp{
+  grid-area: fMinMax;
+  text-align: right;
+  @include base.flexFormat;
+}
+
+// #icon{
+//   grid-area: ic;
+//   background-repeat: no-repeat;
+//   background-position: center;
+// }
+// #desc{
+//   grid-area: de;
+//   text-align: center;
+//   color: rgba(255, 255, 255, 0.74);
+// }
+// #name{
+//   grid-area: na;
+//   font-size: 25px;
+//   color: rgba(255, 255, 255, 0.74);
+//   text-align: center;
+// }
+// #date{
+//   grid-area: dt;
+//   color: rgba(255, 255, 255, 0.74);
+//   text-align: left;
+// }
+
+// #temp{
+//   grid-area: tc;
+//   color: rgba(255, 255, 255, 0.74);
+//   text-align: left;
+// }
+// #feels{
+//   grid-area: tf;
+//   color: rgba(255, 255, 255, 0.74);
+//   text-align: left;
+// }
+// #content{
+//   grid-area: ct;
+//   color: rgba(255, 255, 255, 0.74);
+//   text-align: left;
+// }

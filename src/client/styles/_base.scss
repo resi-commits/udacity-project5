@@ -1,0 +1,11 @@
+$font-color-green: #219F8F; 
+$font-color-black: #474747;
+$input-color: #219f8e77;
+$back-color: rgba(255,255,255,0.7);
+$light-back-color: rgba(255,255,255,0.5);
+
+@mixin flexFormat {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

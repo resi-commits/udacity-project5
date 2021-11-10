@@ -1,0 +1,13 @@
+@use 'base';
+
+.headline{
+  grid-area: hd;
+  padding: 15px;
+  text-align: center;
+  margin: 0 auto 1.4em;
+  width: 100%;
+  border-bottom: 5px solid white;
+  font-size: 46px;
+  color: base.$font-color-black;
+  background-color: base.$light-back-color;
+}

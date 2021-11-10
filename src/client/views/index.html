@@ -10,11 +10,11 @@
 <body>
   <div id="app">
     <div class="holder headline">
-      Theresa's Trip Planner
+      Theresa's Travel Planner
     </div>
     <div class="sidebar">
       <div class="holder destination">
-        <label for="destination">Next travel destination</label>
+        <label for="destination">Your next travel destination:</label>
         <input type="text" id="destination" placeholder="Enter your next travel destination here" required minlength="2">
       </div>
       <div class="holder feel">
@@ -30,20 +30,21 @@
     <div class="holder entry">
       <div class="title">Your trips are displayed here:</div>
       <div id="entryHolder">
-        <div id="icon"></div>
-        <div id="desc"></div>
-        <div id="name"></div>
-        <div id="temp"></div>
-        <div id="minTemp"></div>
-        <div id="maxTemp"></div>
-        <div id="date"></div>
-        <div id="countdown"></div>
+        <div id="travelDestination"></div>
+        <div id="countdown"></div>        
         <div id="destinationImage"></div>
+        <div id="date"></div>
+        <div id="currentTemp"></div>
+        <div id="currentIcon"></div>
+        <div id="currentMinMaxTemp"></div>
+        <div id="forecastTemp"></div>
+        <div id="forecastIcon"></div>
+        <div id="forecastMinMaxTemp"></div>
       </div>
     </div>
-    <div id="footer box">
+    <div class="footer box">
       <footer>
-        Copyright 2021. Image source from Theresa. Content from https://openweathermap.org
+        Copyright 2021. Background image source from Google. Content aggregated from Geonames API, Weatherbit API and Pixabay API.
       </footer>
     </div>
   </div>

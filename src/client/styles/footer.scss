@@ -1,0 +1,9 @@
+@use 'base';
+
+.footer{
+  grid-area: ft;
+  border-top: 5px solid white;
+  color: base.$font-color-black;
+  background-color: base.$light-back-color;
+  width: 100vw;
+}
