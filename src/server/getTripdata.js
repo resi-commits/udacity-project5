@@ -20,9 +20,9 @@ const getTripdata = async (input) => {
   const tripend = input.tripend
   // console.log(`destination: ${destination}, tripstart: ${tripstart}, tripend: ${tripend}`)
   try {
-    
+    const dest = resolveUmlauts(destinationInput)
     // 1A. use input destination to get coordinates (geonames API)
-    const geonamesURL = `${geonames_base_url}?username=${geonames_user_name}&maxRows=1&q=${destinationInput}`
+    const geonamesURL = `${geonames_base_url}?username=${geonames_user_name}&maxRows=1&q=${dest}`
     const geonamesRes = await axios.get(geonamesURL)
     // declare latitude, longitude and country name received from geonames API
     const { lat, lng, countryName, name } = geonamesRes.data.geonames[0];
@@ -57,6 +57,18 @@ const getTripdata = async (input) => {
   } catch(error) {
     console.log(error)
   }
+}
+
+const resolveUmlauts = (input) => {
+  value = input.toLowerCase();
+  value = value.replace(/\u00e4/g, 'ae');
+  value = value.replace(/\u00e4/g, 'ae');
+  value = value.replace(/\u00d6/g, 'oe');
+  value = value.replace(/\u00f6/g, 'oe');
+  value = value.replace(/\u00dc/g, 'ue');
+  value = value.replace(/\u00fc/g, 'ue');
+  value = value.replace(/\u00df/g, 'ss');
+  return value;
 }
 
 module.exports = getTripdata;
