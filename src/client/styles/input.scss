@@ -5,10 +5,16 @@
   padding: 15px;
   background-color: base.$back-color;
   border-radius: 5%;
-  width: 50%;
+  width: 70%;
   margin: 10px auto;
   color: base.$font-color-green;
   border: 5px solid white;
+}
+
+@media(min-width:550px){
+  .sidebar{
+    width: 50%;
+  }
 }
 
 label{
@@ -43,11 +49,6 @@ textarea:focus {
   color: base.$font-color-green;
 }
 
-// input:visited,
-// textarea:visited {
-//   background: base.$light-back-color;
-//   color: base.$font-color-green;
-// }
 /* Style for Placeholder Text*/
 ::placeholder { /* Firefox, Chrome, Opera */ 
   color: base.$input-color; 

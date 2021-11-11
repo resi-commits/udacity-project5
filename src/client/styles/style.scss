@@ -6,7 +6,7 @@ body{
 #app{
     display: grid;
     grid-auto-rows: auto auto auto 1fr;
-    grid-template-columns: auto;
+    grid-template-columns: 100%;
     grid-template-areas: 
     "hd"
     "sd"
@@ -21,27 +21,15 @@ body{
     width: 100%;
 }
 
-
-@media(min-width:800px){
-    #entryHolder{
-        display: grid;
+@media(min-width:550px){
+    #app{
+        grid-template-columns: auto;
         grid-template-areas: 
-        "ic ic ic na na na dt"
-        "ic ic ic tc tc ct ct"
-        "de de de tf tf ct ct";
-        gap: 20px;
-        background-color: rgba(0,0,0,0.25);
-        border-radius: 5%;
-        padding: 25px;
+        "hd hd hd hd"
+        "sd sd sd sd"
+        "main main main main"
+        "ft ft ft ft";
+        font-family: 'Oswald', sans-serif;
         width: 100%;
-    }
-    #date{
-        text-align: right;
-    }
-    #content{
-        text-align: right;
-    }
-    #name{
-        text-align: left;
     }
 }
