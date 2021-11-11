@@ -31,7 +31,7 @@ const getTripdata = async (input) => {
     const weatherbitURL = `${weatherbit_base_url}forecast/daily?key=${weatherbit_api_key}&lat=${lat}&lon=${lng}`
     const weatherbitReq = axios.get(weatherbitURL)
     // 2B. use geonames destination to get images (pixabay API)
-    const removeBlanks = destination.replaceAll(' ', '+')
+    const removeBlanks = destination.replace(' ', '+')
     const pixabayURL = `${pixabay_base_url}?key=${pixabay_api_key}&q=${removeBlanks}&image_type=photo&category=travel`
     const pixabayReq = axios.get(pixabayURL)
     // 2C. use country name (depending on 1A. geonamse API) to request picture for country

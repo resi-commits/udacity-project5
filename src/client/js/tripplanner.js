@@ -1,6 +1,6 @@
 function performAction(event){
   getInput(event).then((input)=>{
-    submitData('http://localhost:8081/trip', input).then((res)=>{
+    submitData('/trip', input).then((res)=>{
       updateUI(res)
     })
   })
@@ -26,9 +26,11 @@ const getInput = async () => {
       return values
     } else {
       alert('Please enter a valid trip start date that is in the future.')
+      throw new Error('Please enter a valid trip start date that is in the future.')
     }
   } else {
     alert('Please enter a valid city name.')
+    throw new Error('Please enter a valid city name.')    
   }
 }
 
